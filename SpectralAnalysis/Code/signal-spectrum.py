@@ -16,7 +16,7 @@ SAMPLE_RATE = 44100
 mpl.style.use('./ma-style.mplstyle')
 
 # Load the signal
-data_path = './SuppliedData/val2.dat'
+data_path = './SuppliedData/val3.dat'
 data = np.loadtxt(data_path)
 data = data / np.max(data)
 data_len = len(data)
@@ -25,11 +25,12 @@ print(f"Data length: {data_len}, Time: {data_time}")
 spectrum = fft.fft(data)
 spectrum = spectrum[:data_len//2]
 freq = np.linspace(0.0, 1.0/(2.0*(data_time/data_len)), data_len//2)
-peaks = signal.find_peaks(np.abs(spectrum), height=50)
+peaks = signal.find_peaks(np.abs(spectrum), height=30)
 print(f"Peaks: {[freq[p] for p in peaks[0]]}")
+print(f"Peak Heights: {np.array(peaks[1]['peak_heights'])/np.max(np.abs(spectrum))}")
 
 # Load .wav 
-sound_data = load_wav('./GeneratedData/sig_5880_9685.wav')
+sound_data = load_wav('./GeneratedData/sig_4323_10463_12971_18245.wav')
 print(sound_data["n"])
 sound = sound_data['signal'][:data_len] / np.max(sound_data['signal'])
 s_spectrum = fft.fft(sound)

@@ -82,14 +82,18 @@ f1.set_alpha(0.5)
 
 
 ax[1].set_title("Average Relative Difference")
-ax[1].bar(np.arange(len(n_samples)), [np.mean(diff[sample] / np.abs(spectra['512'])) for sample in n_samples], color=cm, alpha=1,
-          zorder=10, edgecolor='black', linewidth=0.5)
+bardata = [np.mean(diff[sample] / np.abs(spectra['512'])) for sample in n_samples]
+barcontainer = ax[1].bar(np.arange(len(n_samples)), bardata, color=cm, alpha=1,
+                             zorder=10, edgecolor='black', linewidth=0.5)
+bins = [barcontainer.patches[0].get_x(), barcontainer.patches[0].get_x() + barcontainer.patches[0].get_width()]
+print(bins)
 ax[1].set_xticks(np.arange(len(n_samples)))
 ax[1].set_xticklabels([f"{sample}" for sample in n_samples], rotation=0)
 ax[1].set_xlabel('Number of Samples')
 ax[1].set_ylabel('Average Relative Difference')
 ax[1].set_ylim(0.9, 2.2)
-ax[1].fill_between([-0.5, 0.5], 0.9, 1.0, color=cm[0], alpha=0.5, linewidth=0.5, edgecolor='black')
+ax[1].fill_between([bins[0], bins[1]], 0.0, 1.0, color=cm[0], zorder=10, hatch="\\\\",
+                   alpha=0.5, linewidth=0.5, edgecolor='black')
 
 ax[2].set_title("Spectra of Zero-padded Signal to Full Length")
 for i, sample in enumerate(spectra):
