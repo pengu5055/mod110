@@ -14,9 +14,13 @@ mpl.style.use('./ma-style.mplstyle')
 
 # Load signals
 signal0 = np.loadtxt('./SuppliedData/signal0.dat')
+signal0 = signal0 / np.max(signal0)
 signal1 = np.loadtxt('./SuppliedData/signal1.dat')
+signal1 = signal1 / np.max(signal1)
 signal2 = np.loadtxt('./SuppliedData/signal2.dat')
+signal2 = signal2 / np.max(signal2)
 signal3 = np.loadtxt('./SuppliedData/signal3.dat')
+signal3 = signal3 / np.max(signal3)
 
 
 data_len = len(signal0)
