@@ -33,7 +33,7 @@ windows = {
     'Bartlett': signal.windows.bartlett(data_len),
     'Gaussian': signal.windows.gaussian(data_len, std=100),
     'Hamming': signal.windows.hamming(data_len),
-    'Blackman': signal.windows.blackman(data_len),
+    'Lanczos': signal.windows.lanczos(data_len),
     'Kaiser': signal.windows.kaiser(data_len, beta=14)
 }
 
@@ -55,7 +55,13 @@ for i, spectrum in enumerate(spectra):
 
 ax.set_xlabel('Frequency (Hz)')
 ax.set_ylabel('Amplitude [arb. u.]')
-ax.legend(frameon=False)
+l = ax.legend(frameon=True, ncols=2)
+l.set_title('Window Function')
+f = l.get_frame()
+f.set_edgecolor('black')
+f.set_facecolor('white')
+f.set_linewidth(0.5)
+f.set_alpha(0.8)
 ax.set_title("Absolute Difference Between Bare and Windowed Spectra")
 ax.set_yscale('log')
 

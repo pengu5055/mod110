@@ -17,7 +17,7 @@ SAMPLE_RATE = 44100
 mpl.style.use('./ma-style.mplstyle')
 
 # Load the signal
-data_path = './SuppliedData/val2.dat'
+data_path = './SuppliedData/val3.dat'
 data = np.loadtxt(data_path)
 data = data / np.max(data)
 data_len = len(data)
@@ -34,7 +34,7 @@ windows = {
     'Bartlett': signal.windows.bartlett(data_len),
     'Gaussian': signal.windows.gaussian(data_len, std=100),
     'Hamming': signal.windows.hamming(data_len),
-    'Blackman': signal.windows.blackman(data_len),
+    'Lanczos': signal.windows.lanczos(data_len),
     'Kaiser': signal.windows.kaiser(data_len, beta=14)
 }
 
