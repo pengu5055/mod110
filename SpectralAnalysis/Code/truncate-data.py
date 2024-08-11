@@ -17,7 +17,7 @@ SAMPLE_RATE = 44100
 mpl.style.use('./ma-style.mplstyle')
 
 # Load the signal
-data_path = './SuppliedData/val2.dat'
+data_path = './SuppliedData/val3.dat'
 data = np.loadtxt(data_path)
 data = data / np.max(data)
 data_len = len(data)
@@ -91,9 +91,9 @@ ax[1].set_xticks(np.arange(len(n_samples)))
 ax[1].set_xticklabels([f"{sample}" for sample in n_samples], rotation=0)
 ax[1].set_xlabel('Number of Samples')
 ax[1].set_ylabel('Average Relative Difference')
-ax[1].set_ylim(0.9, 2.2)
+ax[1].set_ylim(0.0, 1.1)
 ax[1].fill_between([bins[0], bins[1]], 0.0, 1.0, color=cm[0], zorder=10, hatch="\\\\",
-                   alpha=0.5, linewidth=0.5, edgecolor='black')
+                   alpha=1, linewidth=0.5, edgecolor='black')
 
 ax[2].set_title("Spectra of Zero-padded Signal to Full Length")
 for i, sample in enumerate(spectra):

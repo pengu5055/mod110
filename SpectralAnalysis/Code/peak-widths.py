@@ -45,20 +45,20 @@ for window in windows:
     spectra[window] = spectra[window][:data_len//2]
 
 # Bare peak dimensions
-bare_peaks = signal.find_peaks(np.abs(bare_spectrum), height=50)
+bare_peaks = signal.find_peaks(np.abs(bare_spectrum), height=30)
 bare_peak_widths = signal.peak_widths(np.abs(bare_spectrum), bare_peaks[0], rel_height=0.5)
 bare_peak_widths = bare_peak_widths[0] * SAMPLE_RATE / data_len
 
 # Calculate peak widths
 peaks = {}
 for window in windows:
-    peaks[window] = signal.find_peaks(np.abs(spectra[window]), height=30)
+    peaks[window] = signal.find_peaks(np.abs(spectra[window]), height=10)
     peaks[window] = np.array(peaks[window][1]["peak_heights"]) / bare_peaks[1]["peak_heights"]
 
 # Calculate peak widths -> FWHM
 peak_widths = {}
 for window in windows:
-    peak = signal.find_peaks(np.abs(spectra[window]), height=30)
+    peak = signal.find_peaks(np.abs(spectra[window]), height=10)
     peak_widths[window] = signal.peak_widths(np.abs(spectra[window]), peak[0], rel_height=0.5)
     peak_widths[window] = (peak_widths[window][0] * SAMPLE_RATE/data_len) / bare_peak_widths[0]
 
@@ -71,8 +71,9 @@ x_axis = np.arange(len(windows))
 ax[0].set_title("Relative Peak Heights")
 ax[0].bar(x_axis, [np.mean(peaks[window]) for window in windows], color=cm, alpha=1,
           zorder=10, edgecolor='black', linewidth=0.5)
+ax[0].fill_between([-0.4, 0.4], 0, 1, color=cm[0], edgecolor="black", linewidth=0.5, hatch="\\\\", zorder=10)
 ax[0].set_xticks(x_axis)
-ax[0].set_xticklabels(windows.keys(), rotation=45)
+ax[0].set_xticklabels(windows.keys(), rotation=30)
 # ax[0].set_xlabel("Window Function")
 ax[0].set_ylabel("Peak Heights")
 
@@ -81,7 +82,8 @@ ax[1].set_title("Relative Peak Widths")
 ax[1].bar(x_axis, [np.mean(peak_widths[window]) for window in windows], color=cm, alpha=1,
           zorder=10, edgecolor='black', linewidth=0.5)
 ax[1].set_xticks(x_axis)
-ax[1].set_xticklabels(windows.keys(), rotation=45)
+ax[1].fill_between([-0.4, 0.4], 0, 1, color=cm[0], edgecolor="black", linewidth=0.5, hatch="\\\\", zorder=10)
+ax[1].set_xticklabels(windows.keys(), rotation=30)
 # ax[1].set_xlabel("Window Function")
 ax[1].set_ylabel("Peak Widths")
 
