@@ -18,7 +18,8 @@ mpl.style.use('./ma-style.mplstyle')
 # Load signals
 signal0 = np.loadtxt('./SuppliedData/signal0.dat')
 signal0 = signal0 / np.max(signal0)
-signal1 = np.loadtxt('./SuppliedData/signal1.dat')
+data_path = './SuppliedData/signal0.dat'
+signal1 = np.loadtxt(data_path)
 signal1 = signal1 / np.max(signal1)
 data_len = len(signal0)
 data_time = 1/SAMPLE_RATE * data_len
@@ -51,7 +52,7 @@ ax_u = [
 # Remove the [0, 0] and [0, 2] axes
 ax_u[0].set_visible(True)
 # Use ax_u[0] for large plot title
-ax_u[0].text(0.5, 0.3, 'Reconstructed signal1.dat\nusing Wiener Filter', fontsize=16, ha='center',
+ax_u[0].text(0.5, 0.3, f'Reconstructed {data_path.split("/")[-1]}\nusing Wiener Filter', fontsize=16, ha='center',
              fontfamily="IBM Plex Mono", fontweight='bold')
 ax_u[0].axis('off')
 ax_u[0].grid(False)
@@ -126,5 +127,5 @@ ax_u[1].plot(signal0, color="black")
 ax_u[1].set_title('Noiseless Signal')
 
 plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95)
-plt.savefig("./WienerFilter/Images/reconstructed-signal1.png", dpi=700)
+plt.savefig(f"./WienerFilter/Images/reconstructed-{data_path.split('/')[-1]}.png", dpi=700)
 plt.show()
