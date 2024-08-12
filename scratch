@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+sig = np.random.random((1000, 1000))
+
+mpl.style.use('./ma-style.mplstyle')
+fig, ax = plt.subplots(1, 2, figsize=(12, 5), layout="compressed")
+
+norm = mpl.colors.Normalize(vmin=sig.min(), vmax=sig.max())
+cmap = mpl.cm.get_cmap('gray')
+sm = mpl.cm.ScalarMappable(cmap=cmap, norm=norm)
+
+ax[0].pcolormesh(sig, cmap=cmap, norm=norm)
+cbar = fig.colorbar(sm, ax=ax[0])
+cbar.set_label('Intensity')
+ax[0].set_title("Full Image")
+
+down = 50
+up = 100
+ax[1].pcolormesh(sig[down:up, down:up], cmap=cmap, norm=norm,
+             extent=[up, down, up, down])
+cbar = fig.colorbar(sm, ax=ax[1])
+cbar.set_label('Intensity')
+ax[1].set_title("Zoomed In")
+
+plt.suptitle("My Random Heatmap")
+plt.savefig("heatmap.svg")
+plt.show()

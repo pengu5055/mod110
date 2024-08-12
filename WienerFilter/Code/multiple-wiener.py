@@ -17,7 +17,7 @@ mpl.style.use('./ma-style.mplstyle')
 # Load signals
 signal0 = np.loadtxt('./SuppliedData/signal0.dat')
 signal0 = signal0 / np.max(signal0)
-data_path = './SuppliedData/signal3.dat'
+data_path = './SuppliedData/signal1.dat'
 signal1 = np.loadtxt(data_path)
 signal1 = signal1 / np.max(signal1)
 data_len = len(signal0)
@@ -57,7 +57,7 @@ ax_u[2].set_visible(True)
 for i, value in enumerate(filtered):
     ax_u[2].plot([], [], color=colors[i], label=f"Applied ${i}\\times$")
 l = ax_u[2].legend(loc='center', ncols=2)
-l.set_title('Size of Wiener Filter Window')
+l.set_title('No. of Consecutive Applications')
 f = l.get_frame()
 f.set_facecolor('white')
 f.set_edgecolor('black')
