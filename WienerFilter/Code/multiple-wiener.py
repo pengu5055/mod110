@@ -1,6 +1,5 @@
 """
-Reconstruct the signal signal1.dat using the Wiener filter.
-The expected output is signal0.dat
+Same principle as before but with multiple applications of the Wiener filter.
 """
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,23 +25,19 @@ data_time = 1/SAMPLE_RATE * data_len
 freq = np.linspace(0.0, 1.0/(2.0*(data_time/data_len)), data_len//2)
 
 # Compute the Wiener filter
-filtered = {
-    '5': signal.wiener(signal1, mysize=5),
-    '15': signal.wiener(signal1, mysize=15),
-    '25': signal.wiener(signal1, mysize=25),
-    '55': signal.wiener(signal1, mysize=55),
-    '85': signal.wiener(signal1, mysize=85),
-    '125': signal.wiener(signal1, mysize=125),
-    '155': signal.wiener(signal1, mysize=155),
-    '185': signal.wiener(signal1, mysize=185),
-}
+filtered = [
+    signal1,
+]
+for i in range(7):
+    filtered.append(signal.wiener(filtered[-1], mysize=5))
+print(len(filtered))
 
 # Plot the signals
 colors = cmr.take_cmap_colors('cmr.tropical', len(filtered), cmap_range=(0.0, 0.85))
 fig = plt.figure(figsize=(12, 10))
 gs_outer = fig.add_gridspec(2, 1, height_ratios=[1, 8])
 gs = mpl.gridspec.GridSpecFromSubplotSpec(8, 3, subplot_spec=gs_outer[1],
-                      hspace=0.1, wspace=0.15)
+                      hspace=0.10, wspace=0.15)
 gs_upper = mpl.gridspec.GridSpecFromSubplotSpec(1, 3, subplot_spec=gs_outer[0])
 ax_u = [
     fig.add_subplot(gs_upper[0, 0]),
@@ -52,15 +47,15 @@ ax_u = [
 # Remove the [0, 0] and [0, 2] axes
 ax_u[0].set_visible(True)
 # Use ax_u[0] for large plot title
-ax_u[0].text(0.5, 0.3, f'Reconstructed {data_path.split("/")[-1]}\nusing Wiener Filter', fontsize=16, ha='center',
+ax_u[0].text(0.5, 0.3, f'Multiple Applications of\nWiener Filter on\n{data_path.split("/")[-1]}', fontsize=16, ha='center',
              fontfamily="IBM Plex Mono", fontweight='bold')
 ax_u[0].axis('off')
 ax_u[0].grid(False)
 ax_u[0].set_facecolor('none')
 ax_u[2].set_visible(True)
 # Create legend in ax_u[2]
-for i, (key, value) in enumerate(filtered.items()):
-    ax_u[2].plot([], [], color=colors[i], label=key)
+for i, value in enumerate(filtered):
+    ax_u[2].plot([], [], color=colors[i], label=f"Applied ${i}\\times$")
 l = ax_u[2].legend(loc='center', ncols=2)
 l.set_title('Size of Wiener Filter Window')
 f = l.get_frame()
@@ -77,7 +72,7 @@ for i in range(0, 8):
     for j in range(3):
         ax.append(fig.add_subplot(gs[i, j]))
 
-for i, (key, value) in enumerate(filtered.items()):
+for i, value in enumerate(filtered):
     idx = 3*i
     ax[idx].sharex(ax[21])
     ax[idx].plot(value, color=colors[i])
@@ -87,14 +82,16 @@ for i, (key, value) in enumerate(filtered.items()):
     # plt.setp(ax[idx].get_xticklabels(), visible=False)
     # plt.setp(ax[idx].get_xticklines() , visible=False)
 
-for i, (key, value) in enumerate(filtered.items()):
+for i, value in enumerate(filtered):
     idx = 3*i+1
     ax[idx].sharex(ax[22])
     ax[idx].plot(np.abs(np.abs(signal0) - np.abs(value)), color=colors[i])
+    ax[idx].set_xticks([])
     ax[idx].set_yscale('log')
+    
 
 
-for i, (key, value) in enumerate(filtered.items()):
+for i, value in enumerate(filtered):
     idx = 3*i+2
     ax[idx].sharex(ax[23])
     ax[idx].plot(freq, np.abs(fft.fft(value)[:len(value)//2]), color=colors[i])
@@ -117,11 +114,12 @@ ax[23].set_xticks(np.arange(0, freq.max(), 5000))
 ax[23].set_xscale('log')
 ax[21].set_xlabel('Samples')
 ax[22].set_xlabel('Samples')
+ax[22].set_yscale('log')
 ax[23].set_xlabel('Frequency (Hz)')
 
 ax_u[1].plot(signal0, color="black")
 ax_u[1].set_title('Noiseless Signal')
 
 plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95)
-plt.savefig(f"./WienerFilter/Images/reconstructed-{data_path.split('/')[-1]}.png", dpi=700)
+plt.savefig(f"./WienerFilter/Images/multiple-{data_path.split('/')[-1]}.png", dpi=700)
 plt.show()
