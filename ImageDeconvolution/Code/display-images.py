@@ -9,9 +9,9 @@ import cmasher as cmr
 from skimage import io
 
 # Load the images
-img1 = io.imread('./SuppliedData/lena_slike/lena_k1_nx.pgm')
-img2 = io.imread('./SuppliedData/lena_slike/lena_k2_nx.pgm')
-img3 = io.imread('./SuppliedData/lena_slike/lena_k3_nx.pgm')
+img1 = io.imread('./SuppliedData/lena_slike/lena_k1_n0.pgm')
+img2 = io.imread('./SuppliedData/lena_slike/lena_k2_n0.pgm')
+img3 = io.imread('./SuppliedData/lena_slike/lena_k3_n0.pgm')
 
 kernel1 = io.imread('./SuppliedData/lena_slike/kernel1.pgm')
 kernel2 = io.imread('./SuppliedData/lena_slike/kernel2.pgm')
