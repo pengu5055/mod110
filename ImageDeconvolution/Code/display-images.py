@@ -19,6 +19,10 @@ kernel3 = io.imread('./SuppliedData/lena_slike/kernel3.pgm')
 
 # Display the images
 fig, axs = plt.subplots(2, 3, figsize=(12, 8), layout="compressed")
+
+for ax in axs.flatten():
+    ax.axis('off')
+
 axs[0, 0].imshow(img1, cmap='gray')
 axs[0, 0].set_title('lena_k1_nx.pgm')
 

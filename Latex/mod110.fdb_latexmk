@@ -1,9 +1,11 @@
 # Fdb version 3
-["pdflatex"] 1723557211 "/home/pengu5055/Documents/FMF1mag/mod110/Latex/mod110.tex" "mod110.pdf" "mod110" 1723557212
+["pdflatex"] 1723558178 "/home/pengu5055/Documents/FMF1mag/mod110/Latex/mod110.tex" "mod110.pdf" "mod110" 1723558183
+  "../ImageDeconvolution/Images/lena_and_kernels.png" 1723557577 884571 bea92d5ce96729528e0515ff57d98007 ""
+  "../SpectralAnalysis/Images/raw-signals-spectra.png" 1723382576 1474745 a0ed68addbefb950a71021167de38b53 ""
   "../SpectralAnalysis/Images/window-functions.png" 1723382932 862402 a21fc30518a458f8845a828bb7897138 ""
   "/etc/texmf/web2c/texmf.cnf" 1721132218 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pengu5055/.texlive2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1721133484 1405652 6dbe6b4a0b8b03aa67147fe2fddcad95 ""
-  "/home/pengu5055/Documents/FMF1mag/mod110/Latex/mod110.tex" 1723557211 8268 204ac527f97ba61073c64aec14346ddf ""
+  "/home/pengu5055/Documents/FMF1mag/mod110/Latex/mod110.tex" 1723558178 10399 157ac4246cbe16ede702dd2cb42d808b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -83,10 +85,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1721229899 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "logo_fmf.pdf" 1723555024 15612 f362f770ef36c22b3204cc12be10dccd ""
-  "mod110.aux" 1723557212 1865 2dc46f2fb316d4b9895c734cfcabd839 "pdflatex"
-  "mod110.out" 1723557212 997 f2ac24d4042f5ec6ec35c82091db5a40 "pdflatex"
-  "mod110.tex" 1723557211 8268 204ac527f97ba61073c64aec14346ddf ""
-  "mod110.toc" 1723557212 596 97950b867c1cac7df965d5719bd7538f "pdflatex"
+  "mod110.aux" 1723558183 2565 658af302862e6b014f0c411850b643be "pdflatex"
+  "mod110.out" 1723558183 1150 8c3c03544520486d642040253e18dc8e "pdflatex"
+  "mod110.tex" 1723558178 10399 157ac4246cbe16ede702dd2cb42d808b ""
+  "mod110.toc" 1723558183 680 7d2e06eaf572b6ee335e2f334a7e7d4e "pdflatex"
   (generated)
   "mod110.aux"
   "mod110.log"

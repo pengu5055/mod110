@@ -131,7 +131,14 @@ Wiener's filter is a good starting point and we'll limit ourselves to this metho
 \subsection{Spectra of Signals}
 In the first subtask, the instructions want us to calculate the spectra of signals, that were provided in \texttt{val2.dat} and \texttt{val3.dat}. We should 
 try out different windowing functions to see how they affect the spectra. We can also try and see what happens if we only select a part of the signal and
-calculate the spectrum of that part. 
+calculate the spectrum of that part. Figure \ref{fig:signals} shows the signals we've been given and their raw spectra.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/raw-signals-spectra.png}
+    \caption{Signals \texttt{val2.dat} and \texttt{val3.dat} and their raw spectra.}
+    \label{fig:signals}
+\end{figure}
 
 \subsection{Wiener Filtering}
 We have signals \texttt{signal\{0,1,2,3\}.dat} provided for the second task, each $512$ samples long.  Using Wiener's Filter we should try and 
@@ -148,10 +155,29 @@ the standard test for various image processing algorithms and techniques. We've 
 three convolution kernels and increasing levels of noise. The instructions want us to use Wiener's deconvolution to restore the images as best we can making sure 
 to take care of artifacting due to a non-periodic signal by using either windowing or zero-padding. For the final challenge we we're also given images that 
 have an additional periodic perturbation to them. We should try and remove the periodic perturbation from the images using some form of 
-frequency domain filtering.
+frequency domain filtering. Figure \ref{fig:lena} shows some of the images we've been given and their matching convolution kernels.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_and_kernels.png}
+    \caption{Images of Lena Forsen and their matching convolution kernels.}
+    \label{fig:lena}
+\end{figure}
 
 \section{Solution Overview}
+Another core mantra I want my stubborn brain to learn is to use already existing libraries and tools to solve problems. Sure I think it would be much more 
+educational to write all the presented methods from scratch but that is unfortunately time consuming and thus not very practical. As this task doesn't really 
+include bulk data gathering I also didn't make use of any multiprocessing, threading or distributed computing via say a package like \texttt{ray}. Besides the 
+Python data science gold standard \texttt{numpy} and \texttt{scipy} I also used \texttt{scikit-image} for its plethora of already implemented image processing 
+algorithms. Especially the submodule \texttt{skimage.restoration} was very useful as it already contains both Wiener's filter and Wiener's deconvolution. The rest 
+of the task was mostly about reading in the data, applying and adjusting the filters etc. and plotting the results using \texttt{matplotlib}. As I didn't do any parameter 
+scans I didn't really se the use of taking a class-based approach.
 \section{Results}
+\subsection{Spectra of Signals}
+The spectra of the signals \texttt{val2.dat} and \texttt{val3.dat} are shown in Figure \ref{fig:signals}. We can see very clearly the prominent peaks in the spectra.
+It is also evident that peaks in \texttt{val3.dat} are much wider than in \texttt{val2.dat}. I assume they are subject to leakage effects due to the 
+signal end-points not matching this making the signal non-periodic. 
+
 \section{Conclusion and Comments}
 
 % Add references

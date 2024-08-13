@@ -590,6 +590,16 @@ INPUT ../SpectralAnalysis/Images/window-functions.png
 INPUT ../SpectralAnalysis/Images/window-functions.png
 INPUT ../SpectralAnalysis/Images/window-functions.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ../SpectralAnalysis/Images/raw-signals-spectra.png
+INPUT ../SpectralAnalysis/Images/raw-signals-spectra.png
+INPUT ../SpectralAnalysis/Images/raw-signals-spectra.png
+INPUT ../SpectralAnalysis/Images/raw-signals-spectra.png
+INPUT ../SpectralAnalysis/Images/raw-signals-spectra.png
+INPUT ../ImageDeconvolution/Images/lena_and_kernels.png
+INPUT ../ImageDeconvolution/Images/lena_and_kernels.png
+INPUT ../ImageDeconvolution/Images/lena_and_kernels.png
+INPUT ../ImageDeconvolution/Images/lena_and_kernels.png
+INPUT ../ImageDeconvolution/Images/lena_and_kernels.png
 INPUT mod110.aux
 INPUT ./mod110.out
 INPUT ./mod110.out
