@@ -10,6 +10,7 @@
 \usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage[utf8x]{inputenc}
 \hypersetup{colorlinks=true}
 
 % Load the natbib package for citation style
@@ -176,7 +177,66 @@ scans I didn't really se the use of taking a class-based approach.
 \subsection{Spectra of Signals}
 The spectra of the signals \texttt{val2.dat} and \texttt{val3.dat} are shown in Figure \ref{fig:signals}. We can see very clearly the prominent peaks in the spectra.
 It is also evident that peaks in \texttt{val3.dat} are much wider than in \texttt{val2.dat}. I assume they are subject to leakage effects due to the 
-signal end-points not matching this making the signal non-periodic. 
+signal end-points not matching this making the signal non-periodic. I tested this theory out by performing a \textit{Ghetto Periodicity Fix™} where I set the 
+last value of the signal to the first value called \textit{1-point Fix™} and the last $10$ points to the first value called \textit{10-point Fix™}. The results are
+shown in Figure \ref{fig:periodicity-fix}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/fixed-val3.dat.png}
+    \caption{Spectra of signals \texttt{val3.dat} with and without the \textit{Ghetto Periodicity Fix™}.}
+    \label{fig:periodicity-fix}
+\end{figure}
+
+We see that the stupid methods of \textit{1-point Fix™} and \textit{10-point Fix™} actually work and make the spectral lines 
+much sharper. This would however be greatly improved using a proper windowing function and with that we can move on to the next Figures 
+where we do just that. Figures \ref{fig:windowing-val2} and \ref{fig:windowing-val3} show the absolute difference between the bare 
+unwindowed spectra and the windowed spectra of the two signals \texttt{val2.dat} and \texttt{val3.dat} with different windowing functions applied.
+Do note that all the spectra have been normalized for easier comparison.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/window-spectra-val2.dat.png}
+    \caption{Spectra of signal \texttt{val2.dat} with different windowing functions applied.}
+    \label{fig:windowing-val2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/window-spectra-val3.dat.png}
+    \caption{Spectra of signal \texttt{val3.dat} with different windowing functions applied.}
+    \label{fig:windowing-val3}
+\end{figure}
+
+A larger difference here is not bad since we actually want to remove the leakage effects. For the \texttt{val2.dat} signal
+I think that mostly the choice of window does not matter as much. All windows besides the Rectangular, Kaiser and Gaussian seem 
+to produce similar results. Likewise for the \texttt{val3.dat} signal. It is interesting to note that the Hann window seems to 
+cause some weird oscillatory behavior around the peaks in the spectrum. This is probably due to the fact that the Hann window has 
+a sharper cutoff at its edges. Similar behavior can be observed in the Rectangular window, however it is a bit difficult to see 
+due to the way the data is visualized. Since we're mainly interested in peak widths and heights I came up with a better way to 
+visualize the differences. Using calculated peak heights and widths, which were computed as the FWHM of the peaks,
+I plotted the differences between the peak dimensions for various windows. The results are shown in Figure \ref{fig:peak-differences-2} 
+for the \texttt{val2.dat} signal and in Figure \ref{fig:peak-differences-3} for the \texttt{val3.dat} signal. Since the Rectangular
+window used here is essentially the same as no windowing I used it to compare other windows to relatively.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/peak-widths-val2.dat.png}
+    \caption{Differences in peak heights and widths for the \texttt{val2.dat} signal.}
+    \label{fig:peak-differences-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/peak-widths-val3.dat.png}
+    \caption{Differences in peak heights and widths for the \texttt{val3.dat} signal.}
+    \label{fig:peak-differences-3}
+\end{figure}
+
+A careful reader will quickly notice that on the second plot on the right-hand side, the peak width for the Rectangular window is
+not $1.0$ as it should be. This is due to the fact that while calculating relative differences I still used the reference bare spectra.
+It just so happened that Rectangular window hardly did anything (as it should have) and could thus be used elsewhere as a reference. I do not know 
+what changed here but the peaks seem to have gotten wider for the Rectangular window. We can see 
 
 \section{Conclusion and Comments}
 

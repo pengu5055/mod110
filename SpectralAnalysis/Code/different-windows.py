@@ -16,7 +16,7 @@ SAMPLE_RATE = 44100
 mpl.style.use('./ma-style.mplstyle')
 
 # Load the signal
-data_path = './SuppliedData/val3.dat'
+data_path = './SuppliedData/val2.dat'
 data = np.loadtxt(data_path)
 data = data / np.max(data)
 data_len = len(data)
@@ -24,6 +24,7 @@ data_time = 1/SAMPLE_RATE * data_len
 freq = np.linspace(0.0, 1.0/(2.0*(data_time/data_len)), data_len//2)
 bare_spectrum = fft.fft(data)
 bare_spectrum = bare_spectrum[:data_len//2]
+bare_spectrum = np.abs(bare_spectrum) / np.max(np.abs(bare_spectrum))
 
 # Create windows
 windows = {
@@ -42,6 +43,7 @@ spectra = {}
 for window in windows:
     spectra[window] = fft.fft(data * windows[window])
     spectra[window] = spectra[window][:data_len//2]
+    spectra[window] = np.abs(spectra[window]) / np.max(np.abs(spectra[window]))
 
 # Plot the signal
 colors = ["#37123c","#d72483","#ddc4dd","#60afff","#98CE00"]

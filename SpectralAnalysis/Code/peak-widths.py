@@ -17,7 +17,7 @@ SAMPLE_RATE = 44100
 mpl.style.use('./ma-style.mplstyle')
 
 # Load the signal
-data_path = './SuppliedData/val3.dat'
+data_path = './SuppliedData/val2.dat'
 data = np.loadtxt(data_path)
 data = data / np.max(data)
 data_len = len(data)
@@ -59,8 +59,9 @@ for window in windows:
 peak_widths = {}
 for window in windows:
     peak = signal.find_peaks(np.abs(spectra[window]), height=10)
-    peak_widths[window] = signal.peak_widths(np.abs(spectra[window]), peak[0], rel_height=0.5)
-    peak_widths[window] = (peak_widths[window][0] * SAMPLE_RATE/data_len) / bare_peak_widths[0]
+    peak_widths[window] = signal.peak_widths(np.abs(spectra[window]), peak[0], rel_height=0.1)
+    print(peak_widths[window])
+    peak_widths[window] = (peak_widths[window][0] * SAMPLE_RATE/data_len) / bare_peak_widths
 
 
 colors = ["#37123c","#d72483","#ddc4dd","#60afff","#98CE00"]
@@ -79,6 +80,7 @@ ax[0].set_ylabel("Peak Heights")
 
 
 ax[1].set_title("Relative Peak Widths")
+print(peak_widths)
 ax[1].bar(x_axis, [np.mean(peak_widths[window]) for window in windows], color=cm, alpha=1,
           zorder=10, edgecolor='black', linewidth=0.5)
 ax[1].set_xticks(x_axis)
