@@ -150,6 +150,24 @@ The transfer function of the sensor is given by:
     r(t) = \frac{1}{2\tau} e^{-|t|/\tau}\>, \quad\quad\text{where}\quad\tau = 16\>.
 \end{equation}
 %
+
+Figure \ref{fig:signals-wien} shows the signals we've been given and Figure \ref{fig:spectra-wien} shows the spectra
+of the signals. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/signals.png}
+    \caption{Signals \texttt{signal\{0,1,2,3\}.dat} and their convolution kernel.}
+    \label{fig:signals-wien}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/signals-spectra.png}
+    \caption{Spectra of signals \texttt{signal\{0,1,2,3\}.dat}.}
+    \label{fig:spectra-wien}
+\end{figure}
+
 \subsection{Wieners Deconvolution}
 For the last subtask we've received (cropped) images of Playboy model Lena Forsen (previously Soderberg). Her portrait called \texttt{Lenna} has become 
 the standard test for various image processing algorithms and techniques. We've been given images of Lena that have been damaged by the addition of one of 
@@ -290,6 +308,102 @@ Figure \ref{fig:reconstructed-signals-3} for the \texttt{val3.dat} signal.
 I think I managed to reconstruct the first signal well despite some obvious leakage but the second signal is a bit of a mess 
 with many additional peaks appearing in the spectrum. I was careful not to mess with the normalization of the signal or anything
 that could maybe lead to resonant effects. Not sure what happened here. \\
+
+\subsection{Wiener Filtering}
+I applied Wiener's filter to the signals \texttt{signal\{0,1,2,3\}.dat} as instructed. I've plotted the results of the filter 
+applications with different window sizes in Figures \ref{fig:wiener-filter-1}, \ref{fig:wiener-filter-2} and 
+\ref{fig:wiener-filter-3} for the signals \texttt{signal\{1,2,3\}.dat} respectively. The results I think are quite good. Do note 
+that the figures have been placed at the end of the report due to their large size.
+From these plots we can see that the Wiener filter does a good job at removing the noise from the signals at least in the first two 
+cases. The third signal is heavily distorted by the noise and the filter does its best to remove it, however the damage 
+is already done. For \texttt{signal1.dat} its evident that a small window size is the way to go, as a larger window size 
+starts to essentially flatten the signal which means it looses all its small scale features. The same holds for \texttt{signal2.dat}.
+For \texttt{signal3.dat} however a slightly larger window size seems to be the best choice. This is probably due to the fact that
+the noise is much more prominent in this signal and a larger window size allows the filter to better estimate the noise and 
+extract the meaningful signal. \\
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal1.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal1.dat}.}
+    \label{fig:wiener-filter-1}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal2.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal2.dat}.}
+    \label{fig:wiener-filter-2}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal3.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal3.dat}.}
+    \label{fig:wiener-filter-3}
+\end{figure}
+
+
+I wondered if multiple consecutive applications of the filter could improve the results. The results are shown in Figures
+\ref{fig:wiener-filter-1-2}, \ref{fig:wiener-filter-2-2} and \ref{fig:wiener-filter-3-2} as before. I was surprised by 
+how well consecutive applications of the filter work on the first two signals. The noise is lowered consistently with 
+each application. The third signal however is so damaged that even multiple applications of the filter can't really 
+save it, however the base shape it does manage to extract does get cleaner and cleaner. \\
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal1.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal1.dat}.}
+    \label{fig:wiener-filter-1-2}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal2.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal2.dat}.}
+    \label{fig:wiener-filter-2-2}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal3.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal3.dat}.}
+    \label{fig:wiener-filter-3-2}
+\end{figure}
+
+Since Wiener's filter is hardly the only one out there I wanted to present how a few other filters perform on the signals. The results are shown in Figures \ref{fig:other-filters-1},
+\ref{fig:other-filters-2} and \ref{fig:other-filters-3} again at the end of the report. It's worth explaining that Convolve 
+with Uniform means convolution with constant signal and Downsample after AA means downsampling after anti-aliasing which is also 
+known as decimation in signal processing. The AA filter used was an 8th order type I Chebyshev filter. Performance across filters 
+is quite comparable for the first signal. I'm pleased to say that my favourite filter, the Savitzky-Golay filter seems to 
+always do the trick well. This is because it is designed to remove high frequency noise of a base signal. This is really evident 
+for the second signal. Surprisingly convolution with uniform values also works exceptionally well, arguably yielding the 
+best result for the last signal. Wiener's Filter however still gives good results across all signals. \\
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal1.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal1.dat}.}
+    \label{fig:other-filters-1}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal2.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal2.dat}.}
+    \label{fig:other-filters-2}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal3.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal3.dat}.}
+    \label{fig:other-filters-3}
+\end{figure}
+
+
+
+
 
 
 \section{Conclusion and Comments}

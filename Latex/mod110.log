@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.16)  13 AUG 2024 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.16)  13 AUG 2024 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -358,7 +358,7 @@ LaTeX Info: Redefining \nameref on input line 36.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-<logo_fmf.pdf, id=40, 233.03412pt x 141.6228pt>
+<logo_fmf.pdf, id=44, 233.03412pt x 141.6228pt>
 File: logo_fmf.pdf Graphic file (type pdf)
 <use logo_fmf.pdf>
 Package pdftex.def Info: logo_fmf.pdf  used on input line 41.
@@ -373,7 +373,7 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 64.
 \tf@toc=\write4
 \openout4 = `mod110.toc'.
 
-<../SpectralAnalysis/Images/window-functions.png, id=77, 722.7pt x 361.35pt>
+<../SpectralAnalysis/Images/window-functions.png, id=82, 722.7pt x 361.35pt>
 File: ../SpectralAnalysis/Images/window-functions.png Graphic file (type png)
 <use ../SpectralAnalysis/Images/window-functions.png>
 Package pdftex.def Info: ../SpectralAnalysis/Images/window-functions.png  used on input line 95.
@@ -383,7 +383,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.99 
       [1]
-<../SpectralAnalysis/Images/raw-signals-spectra.png, id=93, 867.24pt x 578.16pt>
+<../SpectralAnalysis/Images/raw-signals-spectra.png, id=98, 867.24pt x 578.16pt>
 File: ../SpectralAnalysis/Images/raw-signals-spectra.png Graphic file (type png)
 <use ../SpectralAnalysis/Images/raw-signals-spectra.png>
 Package pdftex.def Info: ../SpectralAnalysis/Images/raw-signals-spectra.png  used on input line 139.
@@ -401,141 +401,262 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 145.
 
-<../ImageDeconvolution/Images/lena_and_kernels.png, id=105, 867.24pt x 578.16pt>
+<../WienerFilter/Images/signals.png, id=111, 867.24pt x 578.16pt>
+File: ../WienerFilter/Images/signals.png Graphic file (type png)
+<use ../WienerFilter/Images/signals.png>
+Package pdftex.def Info: ../WienerFilter/Images/signals.png  used on input line 159.
+(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../WienerFilter/Images/signals-spectra.png, id=112, 867.24pt x 578.16pt>
+File: ../WienerFilter/Images/signals-spectra.png Graphic file (type png)
+<use ../WienerFilter/Images/signals-spectra.png>
+Package pdftex.def Info: ../WienerFilter/Images/signals-spectra.png  used on input line 166.
+(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../ImageDeconvolution/Images/lena_and_kernels.png, id=114, 867.24pt x 578.16pt>
 File: ../ImageDeconvolution/Images/lena_and_kernels.png Graphic file (type png)
 <use ../ImageDeconvolution/Images/lena_and_kernels.png>
-Package pdftex.def Info: ../ImageDeconvolution/Images/lena_and_kernels.png  used on input line 163.
+Package pdftex.def Info: ../ImageDeconvolution/Images/lena_and_kernels.png  used on input line 181.
 (pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
 [3pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.167 
-       <../SpectralAnalysis/Images/raw-signals-spectra.png>] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
-)
-<../SpectralAnalysis/Images/fixed-val3.dat.png, id=116, 722.7pt x 361.35pt>
-File: ../SpectralAnalysis/Images/fixed-val3.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/fixed-val3.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/fixed-val3.dat.png  used on input line 188.
-(pdftex.def)             Requested size: 446.13727pt x 223.06978pt.
- [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+l.185 
+       <../SpectralAnalysis/Images/raw-signals-spectra.png>] [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.192 
-       <../ImageDeconvolution/Images/lena_and_kernels.png>]
-<../SpectralAnalysis/Images/window-spectra-val2.dat.png, id=126, 722.7pt x 361.35pt>
-File: ../SpectralAnalysis/Images/window-spectra-val2.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/window-spectra-val2.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/window-spectra-val2.dat.png  used on input line 201.
-(pdftex.def)             Requested size: 446.13727pt x 223.06978pt.
-<../SpectralAnalysis/Images/window-spectra-val3.dat.png, id=127, 722.7pt x 361.35pt>
-File: ../SpectralAnalysis/Images/window-spectra-val3.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/window-spectra-val3.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/window-spectra-val3.dat.png  used on input line 208.
+l.196 \section
+              {Results}pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.196 \section
+              {Results} <../WienerFilter/Images/signals.png> <../ImageDeconvolution/Images/lena_and_kernels.png>] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
+File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
+)
+<../SpectralAnalysis/Images/fixed-val3.dat.png, id=133, 722.7pt x 361.35pt>
+File: ../SpectralAnalysis/Images/fixed-val3.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/fixed-val3.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/fixed-val3.dat.png  used on input line 206.
 (pdftex.def)             Requested size: 446.13727pt x 223.06978pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.212 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.212 
-       <../SpectralAnalysis/Images/fixed-val3.dat.png> <../SpectralAnalysis/Images/window-spectra-val2.dat.png>]
-<../SpectralAnalysis/Images/peak-widths-val2.dat.png, id=138, 867.24pt x 361.35pt>
-File: ../SpectralAnalysis/Images/peak-widths-val2.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/peak-widths-val2.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/peak-widths-val2.dat.png  used on input line 226.
-(pdftex.def)             Requested size: 446.13727pt x 185.89056pt.
-<../SpectralAnalysis/Images/peak-widths-val3.dat.png, id=139, 867.24pt x 361.35pt>
-File: ../SpectralAnalysis/Images/peak-widths-val3.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/peak-widths-val3.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/peak-widths-val3.dat.png  used on input line 233.
-(pdftex.def)             Requested size: 446.13727pt x 185.89056pt.
+l.210 
+       <../WienerFilter/Images/signals-spectra.png>]
+<../SpectralAnalysis/Images/window-spectra-val2.dat.png, id=143, 722.7pt x 361.35pt>
+File: ../SpectralAnalysis/Images/window-spectra-val2.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/window-spectra-val2.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/window-spectra-val2.dat.png  used on input line 219.
+(pdftex.def)             Requested size: 446.13727pt x 223.06978pt.
+<../SpectralAnalysis/Images/window-spectra-val3.dat.png, id=144, 722.7pt x 361.35pt>
+File: ../SpectralAnalysis/Images/window-spectra-val3.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/window-spectra-val3.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/window-spectra-val3.dat.png  used on input line 226.
+(pdftex.def)             Requested size: 446.13727pt x 223.06978pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 
+l.230 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 
-       <../SpectralAnalysis/Images/window-spectra-val3.dat.png> <../SpectralAnalysis/Images/peak-widths-val2.dat.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 238--243
-
- []
-
-<../SpectralAnalysis/Images/reduced-samples-val2.dat.png, id=151, 867.24pt x 578.16pt>
-File: ../SpectralAnalysis/Images/reduced-samples-val2.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/reduced-samples-val2.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/reduced-samples-val2.dat.png  used on input line 251.
-(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
-<../SpectralAnalysis/Images/reduced-samples-val3.dat.png, id=152, 867.24pt x 578.16pt>
-File: ../SpectralAnalysis/Images/reduced-samples-val3.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/reduced-samples-val3.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/reduced-samples-val3.dat.png  used on input line 258.
-(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+l.230 
+       <../SpectralAnalysis/Images/fixed-val3.dat.png> <../SpectralAnalysis/Images/window-spectra-val2.dat.png>]
+<../SpectralAnalysis/Images/peak-widths-val2.dat.png, id=156, 867.24pt x 361.35pt>
+File: ../SpectralAnalysis/Images/peak-widths-val2.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/peak-widths-val2.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/peak-widths-val2.dat.png  used on input line 244.
+(pdftex.def)             Requested size: 446.13727pt x 185.89056pt.
+<../SpectralAnalysis/Images/peak-widths-val3.dat.png, id=157, 867.24pt x 361.35pt>
+File: ../SpectralAnalysis/Images/peak-widths-val3.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/peak-widths-val3.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/peak-widths-val3.dat.png  used on input line 251.
+(pdftex.def)             Requested size: 446.13727pt x 185.89056pt.
+ [7pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 
+l.255 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 
-       <../SpectralAnalysis/Images/peak-widths-val3.dat.png> <../SpectralAnalysis/Images/reduced-samples-val2.dat.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 263--270
+l.255 
+       <../SpectralAnalysis/Images/window-spectra-val3.dat.png> <../SpectralAnalysis/Images/peak-widths-val2.dat.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 256--261
 
  []
 
-<../SpectralAnalysis/Images/reconstruction-val2.dat.png, id=163, 722.7pt x 578.16pt>
-File: ../SpectralAnalysis/Images/reconstruction-val2.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/reconstruction-val2.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/reconstruction-val2.dat.png  used on input line 278.
-(pdftex.def)             Requested size: 446.13727pt x 356.91164pt.
+<../SpectralAnalysis/Images/reduced-samples-val2.dat.png, id=169, 867.24pt x 578.16pt>
+File: ../SpectralAnalysis/Images/reduced-samples-val2.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/reduced-samples-val2.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/reduced-samples-val2.dat.png  used on input line 269.
+(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
+<../SpectralAnalysis/Images/reduced-samples-val3.dat.png, id=170, 867.24pt x 578.16pt>
+File: ../SpectralAnalysis/Images/reduced-samples-val3.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/reduced-samples-val3.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/reduced-samples-val3.dat.png  used on input line 276.
+(pdftex.def)             Requested size: 446.13727pt x 297.4249pt.
 [8pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.282 
-       <../SpectralAnalysis/Images/reduced-samples-val3.dat.png>]
-<../SpectralAnalysis/Images/reconstruction-val3.dat.png, id=172, 722.7pt x 578.16pt>
-File: ../SpectralAnalysis/Images/reconstruction-val3.dat.png Graphic file (type png)
-<use ../SpectralAnalysis/Images/reconstruction-val3.dat.png>
-Package pdftex.def Info: ../SpectralAnalysis/Images/reconstruction-val3.dat.png  used on input line 285.
-(pdftex.def)             Requested size: 446.13727pt x 356.91164pt.
- [9pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+l.280 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.289 
-       <../SpectralAnalysis/Images/reconstruction-val2.dat.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 290--293
+l.280 
+       <../SpectralAnalysis/Images/peak-widths-val3.dat.png> <../SpectralAnalysis/Images/reduced-samples-val2.dat.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 281--288
 
  []
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<../SpectralAnalysis/Images/reconstruction-val2.dat.png, id=181, 722.7pt x 578.16pt>
+File: ../SpectralAnalysis/Images/reconstruction-val2.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/reconstruction-val2.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/reconstruction-val2.dat.png  used on input line 296.
+(pdftex.def)             Requested size: 446.13727pt x 356.91164pt.
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.303 \end{document}
-                     <../SpectralAnalysis/Images/reconstruction-val3.dat.png>] (./mod110.aux)
+l.300 
+       <../SpectralAnalysis/Images/reduced-samples-val3.dat.png>]
+<../SpectralAnalysis/Images/reconstruction-val3.dat.png, id=189, 722.7pt x 578.16pt>
+File: ../SpectralAnalysis/Images/reconstruction-val3.dat.png Graphic file (type png)
+<use ../SpectralAnalysis/Images/reconstruction-val3.dat.png>
+Package pdftex.def Info: ../SpectralAnalysis/Images/reconstruction-val3.dat.png  used on input line 303.
+(pdftex.def)             Requested size: 446.13727pt x 356.91164pt.
+ [10pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.307 
+       <../SpectralAnalysis/Images/reconstruction-val2.dat.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 308--311
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--324
+
+ []
+
+<../WienerFilter/Images/reconstructed-signal1.dat.png, id=198, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/reconstructed-signal1.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/reconstructed-signal1.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/reconstructed-signal1.dat.png  used on input line 327.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/reconstructed-signal2.dat.png, id=199, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/reconstructed-signal2.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/reconstructed-signal2.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/reconstructed-signal2.dat.png  used on input line 334.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/reconstructed-signal3.dat.png, id=200, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/reconstructed-signal3.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/reconstructed-signal3.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/reconstructed-signal3.dat.png  used on input line 341.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--352
+
+ []
+
+<../WienerFilter/Images/multiple-signal1.dat.png, id=204, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/multiple-signal1.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/multiple-signal1.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/multiple-signal1.dat.png  used on input line 355.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/multiple-signal2.dat.png, id=205, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/multiple-signal2.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/multiple-signal2.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/multiple-signal2.dat.png  used on input line 362.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/multiple-signal3.dat.png, id=206, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/multiple-signal3.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/multiple-signal3.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/multiple-signal3.dat.png  used on input line 369.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--382
+
+ []
+
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../SpectralAnalysis/Images/reconstruction-val3.dat.png>] [12pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/reconstructed-signal1.dat.png>] [13pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/reconstructed-signal2.dat.png>] [14pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/reconstructed-signal3.dat.png>] [15pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/multiple-signal1.dat.png>] [16pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/multiple-signal2.dat.png>] [17pdfTeX warning (ext4): destination with the same identifier (name{figure.20}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.382 
+       <../WienerFilter/Images/multiple-signal3.dat.png>]
+<../WienerFilter/Images/filters-signal1.dat.png, id=252, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/filters-signal1.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/filters-signal1.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/filters-signal1.dat.png  used on input line 385.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/filters-signal2.dat.png, id=253, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/filters-signal2.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/filters-signal2.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/filters-signal2.dat.png  used on input line 392.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+<../WienerFilter/Images/filters-signal3.dat.png, id=254, 867.24pt x 722.7pt>
+File: ../WienerFilter/Images/filters-signal3.dat.png Graphic file (type png)
+<use ../WienerFilter/Images/filters-signal3.dat.png>
+Package pdftex.def Info: ../WienerFilter/Images/filters-signal3.dat.png  used on input line 399.
+(pdftex.def)             Requested size: 446.13727pt x 371.78113pt.
+ [18] [19pdfTeX warning (ext4): destination with the same identifier (name{figure.21}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.417 \end{document}
+                     <../WienerFilter/Images/filters-signal1.dat.png>] [20pdfTeX warning (ext4): destination with the same identifier (name{figure.22}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.417 \end{document}
+                     <../WienerFilter/Images/filters-signal2.dat.png>] [21pdfTeX warning (ext4): destination with the same identifier (name{figure.23}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.417 \end{document}
+                     <../WienerFilter/Images/filters-signal3.dat.png>] (./mod110.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `mod110.out' has not changed.
-(rerunfilecheck)             Checksum: 8C3C03544520486D642040253E18DC8E;1150.
+(rerunfilecheck)             Checksum: 55876C4B131642B8A317525DABEEDD85;1291.
  ) 
 Here is how much of TeX's memory you used:
- 11109 strings out of 480247
- 172683 string characters out of 5896151
- 467563 words of memory out of 5000000
- 28861 multiletter control sequences out of 15000+600000
+ 11222 strings out of 480247
+ 176808 string characters out of 5896151
+ 469483 words of memory out of 5000000
+ 28939 multiletter control sequences out of 15000+600000
  473027 words of font info for 41 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,9n,63p,381b,534s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on mod110.pdf (11 pages, 15601606 bytes).
+Output written on mod110.pdf (22 pages, 37218132 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 351 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
