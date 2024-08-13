@@ -291,14 +291,14 @@ For a little fun I also tried reconstructing the signals \texttt{val2.dat} and \
 signal from that. The results are shown in Figure \ref{fig:reconstructed-signals-2} for the \texttt{val2.dat} signal and in
 Figure \ref{fig:reconstructed-signals-3} for the \texttt{val3.dat} signal. 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reconstruction-val2.dat.png}
     \caption{Reconstructed signal \texttt{val2.dat} from its spectrum.}
     \label{fig:reconstructed-signals-2} 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reconstruction-val3.dat.png}
     \caption{Reconstructed signal \texttt{val3.dat} from its spectrum.}
@@ -384,7 +384,7 @@ The results are decent but it's clear that this kernel is much harder to deconvo
 and the deconvolution can't really remove it. At higher values of added Gaussian noise the image becomes more or less 
 unrecoverable. The deconvolution introduces some heavy periodic perturbations to the image as a result of leakage effects.
 I investigated on how I could mitigate this using frequency domain filtering. In the end I settled for a phase unwrapping 
-algorithm by Miguel Arevallilo Herráez et al. which is described in \ref{Herraez:02}. The results are shown in Figure
+algorithm by Miguel Arevallilo Herráez et al. which is described in \cite{unwrap}. The results are shown in Figure
 \ref{fig:lena-2-unwrapping}, where I've also included the results of the windowed deconvolution for comparison.
 
 \begin{figure}[H]
@@ -416,14 +416,34 @@ kernel that represents \textit{a diffraction grating} we can see the results in 
     \label{fig:lena-3}
 \end{figure}
 
+The results are considerably better than for the second kernel. The deconvolution does a good job at removing the
+diffraction grating and the windowing does a good job at removing artifacts. Even Gaussian noise is less of a problem
+here. As I finish I took a look at the special images that have an additional periodic perturbation to them. The results
+are shown in Figure \ref{fig:lena-4}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena-periodic.png}
+    \caption{Wiener deconvolution applied to the Lena images with additional periodic perturbation.}
+    \label{fig:lena-4}
+\end{figure}
+
+I tried incredibly hard to remove the periodic perturbation from the images to varying degrees of success. The best results 
+were no doubt achieved for the image convolved with the last kernel. I also managed to use quite a few fancy tricks to improve 
+the results which are explained in \cite{sigproc}. The second kernel still presents the biggest challenge. I tried many different things but I could not clean the 
+image up as well as I would have liked. The first kernel was a bit easier to clean up but the periodic perturbation was still
+quite visible.
+
 \section{Conclusion and Comments}
+I had many fun ideas planned which I had to cut out due to time constraints. Besides Audio SFX and general DSP I wanted 
+to give Steganography a try. I've heard that it is possible to encode information into images using the least significant
+bits of the pixel values for example. Supposedly this can also be done using a convolution kernel of sorts. Overall I'm happy with 
+the results and I hope the report will be well received... \\
 
 % Add references
-% \newpage
-% \bibliographystyle{unsrt}
-% \bibliography{mod110}
-
-% End document
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{mod110}
 
 \newpage
 \section{Large Figures}

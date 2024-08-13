@@ -732,6 +732,15 @@ INPUT ../ImageDeconvolution/Images/lena_k3_deconvolved.png
 INPUT ../ImageDeconvolution/Images/lena_k3_deconvolved.png
 INPUT ../ImageDeconvolution/Images/lena_k3_deconvolved.png
 INPUT ../ImageDeconvolution/Images/lena_k3_deconvolved.png
+INPUT ../ImageDeconvolution/Images/lena-periodic.png
+INPUT ../ImageDeconvolution/Images/lena-periodic.png
+INPUT ../ImageDeconvolution/Images/lena-periodic.png
+INPUT ../ImageDeconvolution/Images/lena-periodic.png
+INPUT ../ImageDeconvolution/Images/lena-periodic.png
+INPUT ./mod110.bbl
+INPUT mod110.bbl
+INPUT ./mod110.bbl
+INPUT mod110.bbl
 INPUT ../WienerFilter/Images/reconstructed-signal1.dat.png
 INPUT ../WienerFilter/Images/reconstructed-signal1.dat.png
 INPUT ../WienerFilter/Images/reconstructed-signal1.dat.png

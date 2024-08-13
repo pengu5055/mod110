@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{unwrap}
+Miguel~Arevallilo Herr\'{a}ez, David~R. Burton, Michael~J. Lalor, and
+  Munther~A. Gdeisat.
+\newblock Fast two-dimensional phase-unwrapping algorithm based on sorting by
+  reliability following a noncontinuous path.
+\newblock {\em Appl. Opt.}, 41(35):7437--7444, Dec 2002.
+
+\bibitem{sigproc}
+John~C. Russ and F.~Brent Neal.
+\newblock {\em The Image Processing Handbook}.
+\newblock CRC Press, 2016.
+
+\end{thebibliography}

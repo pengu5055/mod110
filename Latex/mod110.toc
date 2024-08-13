@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {3}Solution Overview}{5}{section.3}%
 \contentsline {section}{\numberline {4}Results}{5}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Spectra of Signals}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Wiener Filtering}{11}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Wiener Deconvolution}{12}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Conclusion and Comments}{15}{section.5}%
-\contentsline {section}{\numberline {6}Large Figures}{16}{section.6}%
+\contentsline {subsection}{\numberline {4.2}Wiener Filtering}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Wiener Deconvolution}{11}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion and Comments}{16}{section.5}%
+\contentsline {section}{\numberline {6}Large Figures}{18}{section.6}%
