@@ -322,54 +322,11 @@ For \texttt{signal3.dat} however a slightly larger window size seems to be the b
 the noise is much more prominent in this signal and a larger window size allows the filter to better estimate the noise and 
 extract the meaningful signal. \\
 
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal1.dat.png}
-    \caption{Wiener filter applied to the signal \texttt{signal1.dat}.}
-    \label{fig:wiener-filter-1}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal2.dat.png}
-    \caption{Wiener filter applied to the signal \texttt{signal2.dat}.}
-    \label{fig:wiener-filter-2}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal3.dat.png}
-    \caption{Wiener filter applied to the signal \texttt{signal3.dat}.}
-    \label{fig:wiener-filter-3}
-\end{figure}
-
-
 I wondered if multiple consecutive applications of the filter could improve the results. The results are shown in Figures
 \ref{fig:wiener-filter-1-2}, \ref{fig:wiener-filter-2-2} and \ref{fig:wiener-filter-3-2} as before. I was surprised by 
 how well consecutive applications of the filter work on the first two signals. The noise is lowered consistently with 
 each application. The third signal however is so damaged that even multiple applications of the filter can't really 
 save it, however the base shape it does manage to extract does get cleaner and cleaner. \\
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal1.dat.png}
-    \caption{Wiener filter applied consecutively to the signal \texttt{signal1.dat}.}
-    \label{fig:wiener-filter-1-2}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal2.dat.png}
-    \caption{Wiener filter applied consecutively to the signal \texttt{signal2.dat}.}
-    \label{fig:wiener-filter-2-2}
-\end{figure}
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal3.dat.png}
-    \caption{Wiener filter applied consecutively to the signal \texttt{signal3.dat}.}
-    \label{fig:wiener-filter-3-2}
-\end{figure}
 
 Since Wiener's filter is hardly the only one out there I wanted to present how a few other filters perform on the signals. The results are shown in Figures \ref{fig:other-filters-1},
 \ref{fig:other-filters-2} and \ref{fig:other-filters-3} again at the end of the report. It's worth explaining that Convolve 
@@ -380,31 +337,84 @@ always do the trick well. This is because it is designed to remove high frequenc
 for the second signal. Surprisingly convolution with uniform values also works exceptionally well, arguably yielding the 
 best result for the last signal. Wiener's Filter however still gives good results across all signals. \\
 
-\begin{figure}[p]
+
+I also played around with DSP in the context of Reverb and Delay effect algorithms. I find it hard to visualize the effects on 
+paper however as they are meant to be audible, less visual. If anyone is interested they can eventually check out the code 
+which will hopefully be available on my GitHub. \\
+
+\subsection{Wiener Deconvolution}
+I applied Wiener's deconvolution to the images of Lena that were provided. The results for the first kernel are 
+shown in Figures \ref{fig:lena-1}, where the kernel represents \textit{camera jitter}.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal1.dat.png}
-    \caption{Wiener filter and other filters applied to the signal \texttt{signal1.dat}.}
-    \label{fig:other-filters-1}
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k1_deconvolved.png}
+    \caption{Wiener deconvolution applied to the Lena images convolved with the first kernel.}
+    \label{fig:lena-1}
 \end{figure}
 
-\begin{figure}[p]
+We can see that the deconvolution yields fantastic results. I was shocked to see how clear Lena's face could become after 
+the deconvolution. We do spot a typical problem of the Fourier Transform however. We can see that the deconvolution has
+introduced some \textit{ringing} artifacts around the edges of the image, which is again as a result of the image being 
+non-periodic. This can be fixed with windowing which I attempted to do using a Hann window in the last row. I wanted to see 
+how different windows for the purpose of image restoration. The results are shown in Figure \ref{fig:lena-1-windowing}.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal2.dat.png}
-    \caption{Wiener filter and other filters applied to the signal \texttt{signal2.dat}.}
-    \label{fig:other-filters-2}
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k1_n16_windows.png}
+    \caption{Wiener deconvolution applied to the Lena images convolved with the first kernel with different windowing functions.}
+    \label{fig:lena-1-windowing}
 \end{figure}
 
-\begin{figure}[p]
+From this image we can come to the conclusion that the best windows for the purpose of image restoration are the Gaussian 
+and Kaiser windows. They both do a good job at removing the ringing artifacts without introducing vingetting too much. The other 
+windows might remove the artifacts well but distort the image in their own way in the process. The added Gaussian noise 
+really does a number on the image making it much harder to restore. \\
+
+Moving on to the second kernel that represents \textit{motion blur} we can see the results in Figure \ref{fig:lena-2}.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal3.dat.png}
-    \caption{Wiener filter and other filters applied to the signal \texttt{signal3.dat}.}
-    \label{fig:other-filters-3}
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k2_deconvolved.png}
+    \caption{Wiener deconvolution applied to the Lena images convolved with the second kernel.}
+    \label{fig:lena-2}
 \end{figure}
 
+The results are decent but it's clear that this kernel is much harder to deconvolve. The motion blur is much more prominent
+and the deconvolution can't really remove it. At higher values of added Gaussian noise the image becomes more or less 
+unrecoverable. The deconvolution introduces some heavy periodic perturbations to the image as a result of leakage effects.
+I investigated on how I could mitigate this using frequency domain filtering. In the end I settled for a phase unwrapping 
+algorithm by Miguel Arevallilo Herráez et al. which is described in \ref{Herraez:02}. The results are shown in Figure
+\ref{fig:lena-2-unwrapping}, where I've also included the results of the windowed deconvolution for comparison.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k2_deconvolved_noperiodic.png}
+    \caption{Wiener deconvolution applied to the Lena images convolved with the second kernel with phase unwrapping.}
+    \label{fig:lena-2-unwrapping}
+\end{figure}
 
+I also experimented myself with just mindlessly editing the values of the Fourier Transform of the image. I tried to
+remove the periodic perturbations by setting the values of the Fourier Transform to the average of the values in the
+spectrum. The results are shown in Figure \ref{fig:lena-2-averaging}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k2_deconvolved_spectra.png}
+    \caption{Lena images convolved with the second kernel with hand-edited Fourier Transform.}
+    \label{fig:lena-2-averaging}
+\end{figure}
 
+The results seem horrible. I can't seem to identify which part of the spectrum contains the periodic perturbations.
+I made the image darker, blurrier and I managed to make Lena look a bit more masculine. Moving on to the last 
+kernel that represents \textit{a diffraction grating} we can see the results in Figure \ref{fig:lena-3}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../ImageDeconvolution/Images/lena_k3_deconvolved.png}
+    \caption{Wiener deconvolution applied to the Lena images convolved with the third kernel.}
+    \label{fig:lena-3}
+\end{figure}
 
 \section{Conclusion and Comments}
 
@@ -414,4 +424,73 @@ best result for the last signal. Wiener's Filter however still gives good result
 % \bibliography{mod110}
 
 % End document
+
+\newpage
+\section{Large Figures}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal1.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal1.dat}.}
+    \label{fig:wiener-filter-1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal2.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal2.dat}.}
+    \label{fig:wiener-filter-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/reconstructed-signal3.dat.png}
+    \caption{Wiener filter applied to the signal \texttt{signal3.dat}.}
+    \label{fig:wiener-filter-3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal1.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal1.dat}.}
+    \label{fig:wiener-filter-1-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal2.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal2.dat}.}
+    \label{fig:wiener-filter-2-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/multiple-signal3.dat.png}
+    \caption{Wiener filter applied consecutively to the signal \texttt{signal3.dat}.}
+    \label{fig:wiener-filter-3-2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal1.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal1.dat}.}
+    \label{fig:other-filters-1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal2.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal2.dat}.}
+    \label{fig:other-filters-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../WienerFilter/Images/filters-signal3.dat.png}
+    \caption{Wiener filter and other filters applied to the signal \texttt{signal3.dat}.}
+    \label{fig:other-filters-3}
+\end{figure}
+
 \end{document}

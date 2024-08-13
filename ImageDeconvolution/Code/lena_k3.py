@@ -54,7 +54,7 @@ for i, (noise, image) in enumerate(deconvolved_images.items()):
 for i, (noise, image) in enumerate(windowed_deconvolved.items()):
     norm = mpl.colors.Normalize(vmin=image.min(), vmax=image.max())
     axs[2, i].imshow(image, cmap='gray', norm=norm)
-    axs[2, i].set_title(f'Deconvolved w/ Hann Window')
+    axs[2, i].set_title(f'Deconvolved w/ Gaussian Window')
 
 
 plt.savefig("./ImageDeconvolution/Images/lena_k3_deconvolved.png", dpi=500)

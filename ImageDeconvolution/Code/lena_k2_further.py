@@ -69,16 +69,18 @@ values = [spectrum[corner[0], corner[1]] for corner in corners]
 for corner in corners:
     spectrum[corner[0], corner[1]] = np.mean(spectrum) * 1.5
 sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
-ax[0].imshow(np.abs(spectrum), cmap='viridis', norm=norm)
-# cbar = plt.colorbar(sm, ax=ax[0])
-
+ax[0].imshow(np.abs(spectrum), cmap='gray', norm=norm)
+# cbar = plt.colorbar(sm, ax=ax)
+ax[0].set_title('Spectrum')
 
 restored = np.abs(fft.ifft2(spectrum))
 restored = restored / np.max(restored) * 255
 norm = mpl.colors.Normalize(vmin=restored.min(), vmax=restored.max())
 ax[1].imshow(restored, cmap='gray', norm=norm)
+ax[1].set_title('Restored Image')
 
 ax[2].imshow(phases_adjusted['0'], cmap='gray', vmin=0, vmax=255)
+ax[2].set_title('Input to Process')
 
 plt.savefig("./ImageDeconvolution/Images/lena_k2_deconvolved_spectra.png", dpi=500)
 plt.tight_layout()
