@@ -128,6 +128,27 @@ example be the point spread function of the camera with leads to blurring of the
 Wiener's filter is a good starting point and we'll limit ourselves to this method in this task.
 
 \section{Task}
+\subsection{Spectra of Signals}
+In the first subtask, the instructions want us to calculate the spectra of signals, that were provided in \texttt{val2.dat} and \texttt{val3.dat}. We should 
+try out different windowing functions to see how they affect the spectra. We can also try and see what happens if we only select a part of the signal and
+calculate the spectrum of that part. 
+
+\subsection{Wiener Filtering}
+We have signals \texttt{signal\{0,1,2,3\}.dat} provided for the second task, each $512$ samples long.  Using Wiener's Filter we should try and 
+remove the noise from the signals. \texttt{signal0.dat} represents the noiseless signal while the other signals have increasing levels of noise added to them.
+The transfer function of the sensor is given by:
+%
+\begin{equation}
+    r(t) = \frac{1}{2\tau} e^{-|t|/\tau}\>, \quad\quad\text{where}\quad\tau = 16\>.
+\end{equation}
+%
+\subsection{Wieners Deconvolution}
+For the last subtask we've received (cropped) images of Playboy model Lena Forsen (previously Soderberg). Her portrait called \texttt{Lenna} has become 
+the standard test for various image processing algorithms and techniques. We've been given images of Lena that have been damaged by the addition of one of 
+three convolution kernels and increasing levels of noise. The instructions want us to use Wiener's deconvolution to restore the images as best we can making sure 
+to take care of artifacting due to a non-periodic signal by using either windowing or zero-padding. For the final challenge we we're also given images that 
+have an additional periodic perturbation to them. We should try and remove the periodic perturbation from the images using some form of 
+frequency domain filtering.
 
 \section{Solution Overview}
 \section{Results}
