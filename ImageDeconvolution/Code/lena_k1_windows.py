@@ -9,6 +9,9 @@ from skimage import io
 import scipy.signal as signal
 from skimage import color, data, restoration
 
+# Use custom style 
+mpl.style.use('./ma-style.mplstyle')
+
 # Load the images
 lena_k1 = io.imread('./SuppliedData/lena_slike/lena_k1_n16.pgm')
 kernel1 = io.imread('./SuppliedData/lena_slike/kernel1.pgm')

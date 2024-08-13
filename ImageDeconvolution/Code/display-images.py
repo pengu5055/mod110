@@ -7,6 +7,8 @@ import matplotlib.image as mpimg
 import matplotlib as mpl
 import cmasher as cmr
 from skimage import io
+# Use custom style 
+mpl.style.use('./ma-style.mplstyle')
 
 # Load the images
 img1 = io.imread('./SuppliedData/lena_slike/lena_k1_n0.pgm')

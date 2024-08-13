@@ -9,6 +9,9 @@ from skimage import io
 import scipy.signal as signal
 from skimage import color, data, restoration
 
+# Use custom style 
+mpl.style.use('./ma-style.mplstyle')
+
 # Load the images
 lena_k1 = {
     '0': io.imread('./SuppliedData/lena_slike/lena_k1_n0.pgm'),
@@ -63,7 +66,7 @@ for i, (noise, image) in enumerate(deconvolved_images.items()):
 for i, (noise, image) in enumerate(windowed_deconvolved.items()):
     norm = mpl.colors.Normalize(vmin=image.min(), vmax=image.max())
     axs[2, i].imshow(image, cmap='gray', norm=norm)
-    axs[2, i].set_title(f'Deconvolved w/ Hann Window')
+    axs[2, i].set_title(f'w/ Hann Window')
 
 
 plt.savefig("./ImageDeconvolution/Images/lena_k1_deconvolved.png", dpi=500)

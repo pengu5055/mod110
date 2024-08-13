@@ -7,7 +7,11 @@ import scipy.fft as fft
 import matplotlib as mpl
 from skimage import io
 import scipy.signal as signal
+import cmasher as cmr
 from skimage import color, data, restoration
+
+# Use custom style 
+mpl.style.use('./ma-style.mplstyle')
 
 # Load the images
 lena_k1 = io.imread('./SuppliedData/lena_slike/lena_k1_nx.pgm')
@@ -21,9 +25,12 @@ kernel3 = io.imread('./SuppliedData/lena_slike/kernel3.pgm')
 window_1d = signal.windows.gaussian(kernel1.shape[0], std=120)
 window_2d = np.outer(window_1d, window_1d)
 
+spectrum_k1 = fft.fft2(lena_k1)
+spectrum_k2 = fft.fft2(lena_k2)
+spectrum_k3 = fft.fft2(lena_k3)
 
 # Display the images
-fig, ax = plt.subplots(3, 3, figsize=(10, 8))
+fig, ax = plt.subplots(3, 3, figsize=(10, 8), layout='compressed')
 for a in ax.flatten():
     a.axis('off')
 
@@ -34,8 +41,20 @@ ax[0, 1].set_title('lena_k2_nx.pgm')
 ax[0, 2].imshow(lena_k3, cmap='gray')
 ax[0, 2].set_title('lena_k3_nx.pgm')
 
+cm = cmr.tropical
+norm1 = mpl.colors.LogNorm(vmin=np.min(np.abs(spectrum_k1)), vmax=np.max(np.abs(spectrum_k1)))
+norm2 = mpl.colors.LogNorm(vmin=np.min(np.abs(spectrum_k2)), vmax=np.max(np.abs(spectrum_k2)))
+norm3 = mpl.colors.LogNorm(vmin=np.min(np.abs(spectrum_k3)), vmax=np.max(np.abs(spectrum_k3)))
+sm1 = plt.cm.ScalarMappable(cmap=cm, norm=norm1)
+sm2 = plt.cm.ScalarMappable(cmap=cm, norm=norm2)
+sm3 = plt.cm.ScalarMappable(cmap=cm, norm=norm3)
+ax[1, 0].imshow(np.abs(spectrum_k1), cmap=cm, norm=norm1)
+ax[1, 1].imshow(np.abs(spectrum_k2), cmap=cm, norm=norm2)
+ax[1, 2].imshow(np.abs(spectrum_k3), cmap=cm, norm=norm3)
+cbar1 = fig.colorbar(sm1, ax=ax[1, 0], orientation='vertical')
+cbar2 = fig.colorbar(sm2, ax=ax[1, 1], orientation='vertical')
+cbar3 = fig.colorbar(sm3, ax=ax[1, 2], orientation='vertical')
+
 
 plt.savefig("./ImageDeconvolution/Images/lena-periodic.png", dpi=500)
-plt.subplots_adjust(wspace=0.8)
-plt.tight_layout()
 plt.show()
