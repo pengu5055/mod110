@@ -172,7 +172,9 @@ include bulk data gathering I also didn't make use of any multiprocessing, threa
 Python data science gold standard \texttt{numpy} and \texttt{scipy} I also used \texttt{scikit-image} for its plethora of already implemented image processing 
 algorithms. Especially the submodule \texttt{skimage.restoration} was very useful as it already contains both Wiener's filter and Wiener's deconvolution. The rest 
 of the task was mostly about reading in the data, applying and adjusting the filters etc. and plotting the results using \texttt{matplotlib}. As I didn't do any parameter 
-scans I didn't really se the use of taking a class-based approach.
+scans I didn't really se the use of taking a class-based approach. Oh I'd also like to mention that I used a sample rate of $44.1$ kHz for 
+the spectral analysis of the signals. This is because I wanted to imagine the signals as audio signals which I best understand. I also tried to have some 
+fun with them by reconstructing the signals from their spectra using \texttt{Audacity}. 
 \section{Results}
 \subsection{Spectra of Signals}
 The spectra of the signals \texttt{val2.dat} and \texttt{val3.dat} are shown in Figure \ref{fig:signals}. We can see very clearly the prominent peaks in the spectra.
@@ -214,7 +216,7 @@ to produce similar results. Likewise for the \texttt{val3.dat} signal. It is int
 cause some weird oscillatory behavior around the peaks in the spectrum. This is probably due to the fact that the Hann window has 
 a sharper cutoff at its edges. Similar behavior can be observed in the Rectangular window, however it is a bit difficult to see 
 due to the way the data is visualized. Since we're mainly interested in peak widths and heights I came up with a better way to 
-visualize the differences. Using calculated peak heights and widths, which were computed as the FWHM of the peaks,
+visualize the differences. Using calculated peak heights and widths, which were computed at $0.1$ relative height of the peaks,
 I plotted the differences between the peak dimensions for various windows. The results are shown in Figure \ref{fig:peak-differences-2} 
 for the \texttt{val2.dat} signal and in Figure \ref{fig:peak-differences-3} for the \texttt{val3.dat} signal. Since the Rectangular
 window used here is essentially the same as no windowing I used it to compare other windows to relatively.
@@ -233,10 +235,62 @@ window used here is essentially the same as no windowing I used it to compare ot
     \label{fig:peak-differences-3}
 \end{figure}
 
-A careful reader will quickly notice that on the second plot on the right-hand side, the peak width for the Rectangular window is
-not $1.0$ as it should be. This is due to the fact that while calculating relative differences I still used the reference bare spectra.
-It just so happened that Rectangular window hardly did anything (as it should have) and could thus be used elsewhere as a reference. I do not know 
-what changed here but the peaks seem to have gotten wider for the Rectangular window. We can see 
+We can see that using windows makes sense in both cases. While we do sacrifice some peak intensity we gain in peak sharpness.
+The Rectangular window is the worst choice in both cases (as expected as it is essentially no windowing). For signal \texttt{val2.dat}
+the Lanczos window seems to be the best choice as it has the sharpest peak with the least intensity loss. The same holds true for 
+the \texttt{val3.dat} signal. We can see however that the performance across windows is quite comparable. Even the Kaiser window 
+could be a good choice if its width parameter $\beta$ is chosen correctly. \\
+
+We can also take a look at how the signal's spectra change when we only take a part of the signal. Figures 
+\ref{fig:partial-signal-2} and \ref{fig:partial-signal-3} show the spectra of the signals \texttt{val2.dat} and \texttt{val3.dat} 
+when only the first $256, 128, 64, 32, 16$ samples are taken. The plots present the spectra as well as the absolute and average 
+relative differences between the full signal and the partial signals.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reduced-samples-val2.dat.png}
+    \caption{Spectra of signal \texttt{val2.dat} when only a part of the signal is taken.}
+    \label{fig:partial-signal-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reduced-samples-val3.dat.png}
+    \caption{Spectra of signal \texttt{val3.dat} when only a part of the signal is taken.}
+    \label{fig:partial-signal-3}
+\end{figure}
+
+I think it's safe to say that the spectra at $16$ samples are essentially useless, however doubling the number of samples 
+already gives us some noticable humps where the peaks should be. From this one could at least estimate the frequency content 
+of a signal with very few samples. Its interesting to see how some of the spectra are broken due to non-periodicity of the 
+samples used. This is especially evident in the \texttt{val3.dat} spectra for $128$ samples and in the \texttt{val2.dat} 
+spectra for $256$ samples. I think that it is due to this effect that the matching average relative differences are comparably
+so high. All this could be greatly improved by using a proper windowing function but I wanted to demonstrate the raw effect 
+of taking only a part of the signal. \\
+
+For a little fun I also tried reconstructing the signals \texttt{val2.dat} and \texttt{val3.dat} from their spectra using 
+\texttt{Audacity}. This was done by reading the peaks and their relative intensities from the spectra and then generating a
+signal from that. The results are shown in Figure \ref{fig:reconstructed-signals-2} for the \texttt{val2.dat} signal and in
+Figure \ref{fig:reconstructed-signals-3} for the \texttt{val3.dat} signal. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reconstruction-val2.dat.png}
+    \caption{Reconstructed signal \texttt{val2.dat} from its spectrum.}
+    \label{fig:reconstructed-signals-2} 
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../SpectralAnalysis/Images/reconstruction-val3.dat.png}
+    \caption{Reconstructed signal \texttt{val3.dat} from its spectrum.}
+    \label{fig:reconstructed-signals-3}
+\end{figure}
+
+I think I managed to reconstruct the first signal well despite some obvious leakage but the second signal is a bit of a mess 
+with many additional peaks appearing in the spectrum. I was careful not to mess with the normalization of the signal or anything
+that could maybe lead to resonant effects. Not sure what happened here. \\
+
 
 \section{Conclusion and Comments}
 
